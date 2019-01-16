@@ -6,3 +6,31 @@
     background: rgb(16, 109, 163);
     color: white;
 }
+#humidity {
+    background: rgb(16, 109, 163);
+    color: white;
+}
+#pressure {
+    background: blue;
+    color: white;
+}
+#temp_min {
+    background: blue;
+    color: white;
+}
+#temp_max {
+    background: red;
+    color: white;
+}
+#speed {
+    background:green;
+    color: white;
+}
+#direction {
+    background:green;
+    color: white;
+}
+#clouds {
+    background: greenyellow;
+    color: white;
+}
