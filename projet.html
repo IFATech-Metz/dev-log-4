@@ -10,17 +10,28 @@
             Nom de la ville :
             <input type="text" id="ville" value=""><br>
         
-         <button type="button" onclick="get_temperature()">Envoyer</button>
-            <input type="checkbox" id="url_visibility">
+         <button type="button" onclick="meteoComplete()">Envoyer</button>
+           <input type="checkbox" id="url_visibility">
         </p>
         <h2>Maintenant</h2>
-       <div id="url">
-       </div>
 
+        
+        <div id="url">
+        </div>
+<!-- Le bloc météo est modifié par le JS pour afficher la réponse de la température à l'instant T-->
         <div id="meteo">
         </div>
         <img id="icon" src="">
+
         <h2>Pr&eacute;visions &agrave; 5 jours</h2>
         
+        
+        <div id="previsionmeteo">
+        </div>
+        <div id="urlForecast">
+        </div>
+        <img id="icon" src="">
+
+
     </body>
 </html>
