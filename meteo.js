@@ -7,7 +7,7 @@ var xhr = new XMLHttpRequest();
 var base_url = "http://api.openweathermap.org/data/2.5/weather";
 var city = "Metz";
 var units = "metric";
-var appid = "f5e810531af1756846022c6f387acf25";
+var appid = "a09cbd4e9badfe13c2f50fffcf69ad1c";
 
 function get_url() {
     return base_url + "?"
@@ -25,6 +25,7 @@ function init_page() {
 //Temperature
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
+        
 //Icone
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
@@ -43,7 +44,7 @@ function get_temperature() {
 
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //TODO
+            
             document.getElementById("url").innerHTML = get_url();
 
             if(document.getElementById("url_visibility").checked){
