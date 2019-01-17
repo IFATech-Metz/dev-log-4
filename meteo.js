@@ -1,4 +1,11 @@
-var xhr = new XMLHttpRequest();
+
+// Comme on effectue 2 requêtes différentes
+// on utilisera 2 objets requêtes différents pour 
+// éviter une confusion des données de réponse "instant T" et "Prévisions"
+var xhr = new XMLHttpRequest(); // Requête de la météo instant T
+var xhrForecast = new XMLHttpRequest(); // requête de Forecast
+
+
 
 // Forme générale du lien :
 // http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?
@@ -8,7 +15,7 @@ var base_url = "http://api.openweathermap.org/data/2.5/weather";
 var forecast_url = "http://api.openweathermap.org/data/2.5/forecast";
 var city = "Metz";
 var units = "metric";
-var appid = "a09cbd4e9badfe13c2f50fffcf69ad1c";
+var appid = "20f42eda5e8eb5541a9e68271d63b657";
 
 
 //Va chercher l'url meteo Instant clic
@@ -88,7 +95,7 @@ function getMeteoinstant() {
      function getPrevision() {
         city = document.getElementById("ville").value;
     
-        xhr.onreadystatechange = function() {
+        xhrForecast.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
     
                 document.getElementById("urlForecast").innerHTML = getforecasturl();
@@ -107,18 +114,19 @@ function getMeteoinstant() {
                 //Boucle affichage prévisions 5 jours : stockage dans un tableau
                 var i = 0;
                 var previsionTemperature = [];
-                for (i = 0 ; i<=5; i++ ){
+                for (i = 0 ; i<5; i++ ){
                     previsionTemperature [i] = response.list[i].main.temp;
                 }
+               
                 //Affichage du tableau dans une string
 
                 document.getElementById("previsionmeteo").innerHTML = previsionTemperature.toString();
-
+               
             }
         }
 
-        xhr.open("GET", getforecasturl(), true)
-        xhr.send()
+        xhrForecast.open("GET", getforecasturl(), true)
+        xhrForecast.send();
     }
     
     //Fonction qui appelle les deux fonctions meteo au clic
@@ -128,4 +136,3 @@ function getMeteoinstant() {
     }
     
 
-    
