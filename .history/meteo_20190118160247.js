@@ -26,12 +26,9 @@ function init_page() {
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
 //Latitude
-            var latitude = response.coord.lat;
+            var Latitude = response.coord.lat;
 //Longitude
-            var longitude = response.coord.lon;
-//precipitation
-            var rain = response.precitation.value;
-            var rainmode = response.precitation.mode;
+            var Longitude = response.coord.lon;
 //Humidité  
            var humidity = response.main.humidity;
 //pression
@@ -54,8 +51,6 @@ function init_page() {
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("longitude").innerHTML = longitude;
             document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("rain").innerHTML = rain;
-            document.getElementById("rainmode").innerHTML = rainmode;
             document.getElementById("humidity").innerHTML = humidity;
             document.getElementById("pressure").innerHTML = pressure;
             document.getElementById("temp_min").innerHTML = temp_min;
@@ -89,8 +84,6 @@ function get_temperature() {
             var temperature = response.main.temp;
             var longitude = response.coord.lon;
             var latitude = response.coord.lat;
-            var rain = response.precitation.value;
-            var rainmode = response.precitation.mode;
             var humidity = response.main.humidity
             var pressure = response.main.pressure
             var temp_min = response.main.temp_min
@@ -98,15 +91,13 @@ function get_temperature() {
             var speed = response.wind.speed
             var direction = response.wind.deg
             var clouds = response.clouds.all
-              
+                        
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("longitude").innerHTML = longitude;
             document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("rain").innerHTML = rain;
-            document.getElementById("rainmode").innerHTML = rainmode;
             document.getElementById("humidity").innerHTML = humidity;
             document.getElementById("pressure").innerHTML = pressure;
             document.getElementById("temp_min").innerHTML = temp_min;
