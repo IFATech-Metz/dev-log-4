@@ -110,47 +110,40 @@ function getMeteoinstant() {
     
                 var response = JSON.parse(this.responseText);
 
+                //Création de tableau en JS. Si on veut ajouter d'autres paramètres
+                //le programme crée d'autres lignes et le css est appliqué directement
 
-                //Boucle affichage température min 5 jours : stockage dans un tableau
-                var table = document.getElementById("myTable");
-                var row = table.insertRow(0);
-                var i = 0;
-                var previsionTemperature = [];
+                //Boucle affichage température min 5 jours : stockage dans une ligne du tableau
+                var table0 = document.getElementById("tableau");
+                var row0 = table0.insertRow(0);
+
                 for (i = 0 ; i<5; i++ ){
-                    previsionTemperature [i] = response.list[i].main.temp_min;
-                    //var i = row.insertCell(i);
-                   // cell1.innerHTML = "???";
 
-
+                    var cell = row0.insertCell(0)
+                    cell.innerHTML = response.list[i].main.temp_min
                 }
-                //previsionTemperature = document.getElementById("table").insertRow(i);
-
-
-                //Affichage du tableau dans une string
-                document.getElementById("previsionmeteo").innerHTML = previsionTemperature.toString();
                
-                //Boucle affichage température max 5 jours : stockage dans un tableau
-                //var table = document.getElementById("myTable");
-                //var row = table.insertRow(1);
-                var j = 0;
-                var previsionTemperature2 = [];
+                //Boucle affichage température max 5 jours 
+                var table1 = document.getElementById("tableau");
+                var row1 = table1.insertRow(1);
+             
                 for (j = 0 ; j<5; j++ ){
-                    previsionTemperature2 [j] = response.list[j].main.temp_max;
+                    var cell = row1.insertCell(0)
+                    cell.innerHTML = response.list[j].main.temp_max
                 }
-                //Affichage du tableau dans une string
-                document.getElementById("previsionmeteo2").innerHTML = previsionTemperature2.toString();
+               
+                //Boucle affichage icone 5 jours 
+                var table2 = document.getElementById("tableau");
+                var row2 = table2.insertRow(2);
 
-                //Boucle affichage température max 5 jours : stockage dans un tableau
-                //var table = document.getElementById("myTable");
-                //var row = table.insertRow(2);
-                var k = 0;
-                var previsionTemperature3 = [];
                 for (k = 0 ; k<5; k++ ){
-                    previsionTemperature3 [k] = response.weather[k].icon;
+                    icon = response.list[k].weather[0].icon;
+                    src = "http://openweathermap.org/img/w/" + icon + ".png";
+                    var cell = row2.insertCell(0);
+                    cell.innerHTML = "<img src ='" + src +"'>";
+                   
                 }
-                 //Affichage du tableau dans une string
-                 document.getElementById("iconeprevision").innerHTML = previsionTemperature3.toString();
-                 document.getElementById("icon").src = src;
+                
             }
         }
 
