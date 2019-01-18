@@ -25,7 +25,6 @@ function init_page() {
 //Temperature
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-
 //Humidité  
            var humidity = response.main.humidity;
 //pression
