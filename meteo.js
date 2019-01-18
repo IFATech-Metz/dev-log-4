@@ -111,17 +111,46 @@ function getMeteoinstant() {
                 var response = JSON.parse(this.responseText);
 
 
-                //Boucle affichage prévisions 5 jours : stockage dans un tableau
+                //Boucle affichage température min 5 jours : stockage dans un tableau
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(0);
                 var i = 0;
                 var previsionTemperature = [];
                 for (i = 0 ; i<5; i++ ){
-                    previsionTemperature [i] = response.list[i].main.temp;
-                }
-               
-                //Affichage du tableau dans une string
+                    previsionTemperature [i] = response.list[i].main.temp_min;
+                    //var i = row.insertCell(i);
+                   // cell1.innerHTML = "???";
 
+
+                }
+                //previsionTemperature = document.getElementById("table").insertRow(i);
+
+
+                //Affichage du tableau dans une string
                 document.getElementById("previsionmeteo").innerHTML = previsionTemperature.toString();
                
+                //Boucle affichage température max 5 jours : stockage dans un tableau
+                //var table = document.getElementById("myTable");
+                //var row = table.insertRow(1);
+                var j = 0;
+                var previsionTemperature2 = [];
+                for (j = 0 ; j<5; j++ ){
+                    previsionTemperature2 [j] = response.list[j].main.temp_max;
+                }
+                //Affichage du tableau dans une string
+                document.getElementById("previsionmeteo2").innerHTML = previsionTemperature2.toString();
+
+                //Boucle affichage température max 5 jours : stockage dans un tableau
+                //var table = document.getElementById("myTable");
+                //var row = table.insertRow(2);
+                var k = 0;
+                var previsionTemperature3 = [];
+                for (k = 0 ; k<5; k++ ){
+                    previsionTemperature3 [k] = response.weather[k].icon;
+                }
+                 //Affichage du tableau dans une string
+                 document.getElementById("iconeprevision").innerHTML = previsionTemperature3.toString();
+                 document.getElementById("icon").src = src;
             }
         }
 
@@ -134,5 +163,3 @@ function getMeteoinstant() {
         getMeteoinstant();
         getPrevision();
     }
-    
-

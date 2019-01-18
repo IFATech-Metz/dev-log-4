@@ -6,3 +6,12 @@
     background: rgb(16, 109, 163);
     color: white;
 }
+
+table
+{
+    border-collapse: collapse;
+}
+td, tr, th
+{
+    border: 1px solid black;
+}
