@@ -1,3 +1,9 @@
+#title {
+    color: rgb(15, 4, 4);
+    display: none;
+}
+
+
 #url {
     color: red;
     display: none;
