@@ -1,9 +1,19 @@
+<!DOCTYPE html>
 <html>
-    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="meteo.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+   
+    <div class="head">
         <title>Météo du jour</title>
-        <script src="meteo.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+    </div>
+
+    <div class="menu">
+            <ul>
+              <li>Météo</li>
+            </ul>
+    </div>
+
     <body onload="init_page()">
         <h1>Application M&eacute;t&eacute;o</h1>
         <p>
@@ -11,9 +21,6 @@
             <input type="text" id="ville" value=""><br>
         
             <button type="button" onclick="get_temperature()">Envoyer</button>
-            <input type="checkbox" id="url_visibility">
-                     
-            
         </p>
                   
        <div id="url">
