@@ -46,12 +46,35 @@ function init_page() {
             
             //Température
             var response = JSON.parse(this.responseText);
-            var temperature = response.main.temp
-            document.getElementById("meteo").innerHTML = temperature;
-            
-            //Icone
+            var temperature = response.main.temp;
+
+//Humidité  
+           var humidity = response.main.humidity;
+//pression
+            var pressure = response.main.pressure;  
+//temp_min
+            var temp_min = response.main.temp_min;  
+//temp_max
+            var temp_max = response.main.temp_max;  
+//wind speed
+            var speed = response.wind.speed; 
+//wind direction
+            var direction = response.wind.deg;  
+//clouds
+            var clouds = response.clouds.all; 
+//Icone
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
+
+            
+            document.getElementById("meteo").innerHTML = temperature;
+            document.getElementById("humidity").innerHTML = humidity;
+            document.getElementById("pressure").innerHTML = pressure;
+            document.getElementById("temp_min").innerHTML = temp_min;
+            document.getElementById("temp_max").innerHTML = temp_max;
+            document.getElementById("speed").innerHTML = speed;
+            document.getElementById("direction").innerHTML = direction;
+            document.getElementById("clouds").innerHTML = clouds;
             document.getElementById("icon").src = src;
         }
     }
@@ -79,17 +102,25 @@ function getMeteoinstant() {
 
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-
+            var humidity = response.main.humidity
+            var pressure = response.main.pressure
+            var temp_min = response.main.temp_min
+            var temp_max = response.main.temp_max
+            var speed = response.wind.speed
+            var direction = response.wind.deg
+            var clouds = response.clouds.all
+                        
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
-            document.getElementById("meteo").innerHTML = "La temp&eacute;rature est de " +temperature+ "&deg;C &agrave; "+city;
+
             document.getElementById("icon").src = src;
         }
     }
     xhr.open("GET", get_url(), true)
     xhr.send()
 }
+
 
     //Fonction qui va chercher la météo à 5 jours
      function getPrevision() {
