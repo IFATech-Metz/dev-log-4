@@ -1,38 +1,27 @@
-<!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-   
-    <script src="meteo.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-   
+    
     <head>
         <title>Météo du jour</title>
-       
+        <script src="meteo.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-
     <body onload="init_page()">
-        <div class="main">
-             <h1>Météo</h1>
-                <div class="main_grids"></div>
-                <div class="layouts_main_grid">
-                   
-                    <div class="layouts_main_grid_left">
-                     <input type="text" id="ville" value=""><br>
-                     <button class="button" onclick="get_temperature()">Envoyer</button>
-                    </div>
-                   
-                    <div class="layouts_main_grid_right">
-                        <canvas id="sleet" width="70" height="70"> </canvas>
-                    </div>
-                </div>
-        </div>   
-        
-        
+        <h1>Connaitre la météo de votre ville </h1>
+        <p>
+            Ville :
+            <input type="text" id="ville" value=""><br>
+       
+         <button type="button" onclick="meteoComplete()">Envoyer</button>
+           <input type="checkbox" id="url_visibility">
+        </p>
+        <h2>Maintenant</h2>
 
-       <div id="url">
-       </div>
-
+        
+        <div id="url">
+        </div>
+<!-- Le bloc météo est modifié par le JS pour afficher la réponse de la température à l'instant T-->
         <div id="meteo">
         </div>
         <div id="humidity">
@@ -44,22 +33,23 @@
         <div id="temp_max">
         </div>
         <div id="speed">
-                <div class="w3l_main_grid_left_grid1_left">
-                        <canvas id="wind" width="45" height="45"></canvas>
-                </div>
         </div>
         <div id="direction">
         </div>
         <div id="clouds">
-                <div class="w3ls_main_grid_left_grid1">
-                        <div class="w3l_main_grid_left_grid1_left">
-                            </div>
-							<div class="w3l_main_grid_left_grid1_right">
-								<canvas id="cloudy" width="45" height="45"></canvas>
-							</div>
         </div>
-       
 
         <img id="icon" src="">
+
+        <h2>Pr&eacute;visions &agrave; 5 jours</h2>
+        
+        
+        <div id="urlForecast">
+        </div>
+
+        <table id = tableau>
+
+        </table>
+
     </body>
 </html>
