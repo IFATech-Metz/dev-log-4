@@ -122,9 +122,77 @@ function getMeteoinstant() {
             document.getElementById("direction").innerHTML = direction;
             document.getElementById("clouds").innerHTML = clouds;
             
+
             document.getElementById("icon").src = src;
         }
     }
     xhr.open("GET", get_url(), true)
     xhr.send()
 }
+
+
+    //Fonction qui va chercher la météo à 5 jours
+     function getPrevision() {
+        city = document.getElementById("ville").value;
+    
+        xhrForecast.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+    
+                document.getElementById("urlForecast").innerHTML = getforecasturl();
+    
+    
+               if(document.getElementById("url_visibility").checked){
+                    document.getElementById("url").style.display = "block";
+                }
+                else{
+                    document.getElementById("url").style.display = "none";
+                }
+    
+                var response = JSON.parse(this.responseText);
+
+                //Création de tableau en JS. Si on veut ajouter d'autres paramètres
+                //le programme crée d'autres lignes et le css est appliqué directement
+
+                //Boucle affichage température min 5 jours : stockage dans une ligne du tableau
+                var table0 = document.getElementById("tableau");
+                var row0 = table0.insertRow(0);
+
+                for (i = 0 ; i<5; i++ ){
+
+                    var cell = row0.insertCell(0)
+                    cell.innerHTML = response.list[i].main.temp_min
+                }
+               
+                //Boucle affichage température max 5 jours 
+                var table1 = document.getElementById("tableau");
+                var row1 = table1.insertRow(1);
+             
+                for (j = 0 ; j<5; j++ ){
+                    var cell = row1.insertCell(0)
+                    cell.innerHTML = response.list[j].main.temp_max
+                }
+               
+                //Boucle affichage icone 5 jours 
+                var table2 = document.getElementById("tableau");
+                var row2 = table2.insertRow(2);
+
+                for (k = 0 ; k<5; k++ ){
+                    icon = response.list[k].weather[0].icon;
+                    src = "http://openweathermap.org/img/w/" + icon + ".png";
+                    var cell = row2.insertCell(0);
+                    cell.innerHTML = "<img src ='" + src +"'>";
+                   
+                }
+                
+            }
+        }
+
+        xhrForecast.open("GET", getforecasturl(), true)
+        xhrForecast.send();
+    }
+    
+    //Fonction qui appelle les deux fonctions meteo au clic
+    function meteoComplete() {
+        getMeteoinstant();
+        getPrevision();
+    }
