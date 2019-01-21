@@ -113,6 +113,15 @@ function getMeteoinstant() {
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
+            document.getElementById("meteo").innerHTML = temperature;
+            document.getElementById("humidity").innerHTML = humidity;
+            document.getElementById("pressure").innerHTML = pressure;
+            document.getElementById("temp_min").innerHTML = temp_min;
+            document.getElementById("temp_max").innerHTML = temp_max;
+            document.getElementById("speed").innerHTML = speed;
+            document.getElementById("direction").innerHTML = direction;
+            document.getElementById("clouds").innerHTML = clouds;
+            
 
             document.getElementById("icon").src = src;
         }
