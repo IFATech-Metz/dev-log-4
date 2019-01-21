@@ -55,7 +55,8 @@ function init_page() {
 
         // Will display time in 10:30:23 format
         var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
-        var sun_set = formattedTimeC;    
+        var sun_set = formattedTimeC;
+        var sun_set = response.sys.sunset;
 // condition météo
             var weather_value = response.weather[0].main
 //pression
@@ -138,7 +139,6 @@ function get_temperature() {
             // Will display time in 10:30:23 format
             var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
             var sun_set = formattedTimeC;
-            
             var weather_value = response.weather[0].main;
             var pressure = response.main.pressure;
             var temp_min = response.main.temp_min;

@@ -25,39 +25,15 @@ function init_page() {
 //Temperature
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-//Latitude et longitude
+//Latitude
             var latitude = response.coord.lat;
-            var longitude = response.coord.lon;
+//Longitude
+           // var longitude = response.coord.lon;
+//precipitation
+            var rain = response.precitation.value;
+            var rainmode = response.precitation.mode;
 //Humidité  
            var humidity = response.main.humidity;
-//levé et couché de soleil
-            // Create a new JavaScript Date object based on the timestamp
-            // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-        var dateL = new Date(response.sys.sunrise*1000);
-        // Hours part from the timestamp
-        var hoursL = dateL.getHours();
-        // Minutes part from the timestamp
-        var minutesL = "0" + dateL.getMinutes();
-        // Seconds part from the timestamp
-        var secondsL = "0" + dateL.getSeconds();
-
-        // Will display time in 10:30:23 format
-        var formattedTimeL = hoursL + ':' + minutesL.substr(-2) + ':' + secondsL.substr(-2);
-            var sun_rise = formattedTimeL;
-
-        var dateC = new Date(response.sys.sunset*1000);
-        // Hours part from the timestamp
-        var hoursC = dateC.getHours();
-        // Minutes part from the timestamp
-        var minutesC = "0" + dateC.getMinutes();
-        // Seconds part from the timestamp
-        var secondsC = "0" + dateC.getSeconds();
-
-        // Will display time in 10:30:23 format
-        var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
-        var sun_set = formattedTimeC;    
-// condition météo
-            var weather_value = response.weather[0].main
 //pression
             var pressure = response.main.pressure;  
 //temp_min
@@ -77,11 +53,10 @@ function init_page() {
             
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("longitude").innerHTML = longitude;
+           // document.getElementById("longitude").innerHTML = longitude;
+            document.getElementById("rain").innerHTML = rain;
+            document.getElementById("rainmode").innerHTML = rainmode;
             document.getElementById("humidity").innerHTML = humidity;
-            document.getElementById("sun_rise").innerHTML = sun_rise;
-            document.getElementById("sun_set").innerHTML = sun_set;
-            document.getElementById("weather_value").innerHTML = weather_value;
             document.getElementById("pressure").innerHTML = pressure;
             document.getElementById("temp_min").innerHTML = temp_min;
             document.getElementById("temp_max").innerHTML = temp_max;
@@ -113,50 +88,26 @@ function get_temperature() {
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
             var latitude = response.coord.lat;
-            var longitude = response.coord.lon;
-            var humidity = response.main.humidity;
-            var dateL = new Date(response.sys.sunrise*1000);
-            // Hours part from the timestamp
-            var hoursL = dateL.getHours();
-            // Minutes part from the timestamp
-            var minutesL = "0" + dateL.getMinutes();
-            // Seconds part from the timestamp
-            var secondsL = "0" + dateL.getSeconds();
-
-            // Will display time in 10:30:23 format
-            var formattedTimeL = hoursL + ':' + minutesL.substr(-2) + ':' + secondsL.substr(-2);
-            var sun_rise = formattedTimeL;
-
-           var dateC = new Date(response.sys.sunset*1000);
-            // Hours part from the timestamp
-            var hoursC = dateC.getHours();
-            // Minutes part from the timestamp
-            var minutesC = "0" + dateC.getMinutes();
-            // Seconds part from the timestamp
-            var secondsC = "0" + dateC.getSeconds();
-
-            // Will display time in 10:30:23 format
-            var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
-            var sun_set = formattedTimeC;
-            
-            var weather_value = response.weather[0].main;
-            var pressure = response.main.pressure;
-            var temp_min = response.main.temp_min;
-            var temp_max = response.main.temp_max;
-            var speed = response.wind.speed;
-            var direction = response.wind.deg;
-            var clouds = response.clouds.all;
+           // var longitude = response.coord.lon;
+            var rain = response.precitation.value;
+            var rainmode = response.precitation.mode;
+            var humidity = response.main.humidity
+            var pressure = response.main.pressure
+            var temp_min = response.main.temp_min
+            var temp_max = response.main.temp_max
+            var speed = response.wind.speed
+            var direction = response.wind.deg
+            var clouds = response.clouds.all
               
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
             document.getElementById("meteo").innerHTML = temperature;
             document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("longitude").innerHTML = longitude;
+           // document.getElementById("longitude").innerHTML = longitude;
+            document.getElementById("rain").innerHTML = rain;
+            document.getElementById("rainmode").innerHTML = rainmode;
             document.getElementById("humidity").innerHTML = humidity;
-            document.getElementById("sun_rise").innerHTML = sun_rise;
-            document.getElementById("sun_set").innerHTML = sun_set;
-            document.getElementById("weather_value").innerHTML = weather_value;
             document.getElementById("pressure").innerHTML = pressure;
             document.getElementById("temp_min").innerHTML = temp_min;
             document.getElementById("temp_max").innerHTML = temp_max;

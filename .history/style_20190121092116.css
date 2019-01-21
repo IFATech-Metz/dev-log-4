@@ -6,29 +6,9 @@
     background: rgb(16, 109, 163);
     color: white;
 }
-#latitude {
-    background: rgb(163, 75, 16);
-    color: white;
-}
-#longitude {
-    background: rgb(16, 109, 163);
-    color: white;
-}
+
 #humidity {
     background: rgb(16, 109, 163);
-    color: white;
-}
-#sun_rise {
-    background: rgb(222, 236, 28);
-    color: white;
-}
-
-#sun_set {
-    background: rgb(236, 37, 210);
-    color: white;
-}
-#weather_value {
-    background: rgb(25, 247, 18);
     color: white;
 }
 #pressure {

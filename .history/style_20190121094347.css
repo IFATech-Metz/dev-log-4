@@ -18,17 +18,12 @@
     background: rgb(16, 109, 163);
     color: white;
 }
-#sun_rise {
-    background: rgb(222, 236, 28);
+#rain {
+    background: rgb(16, 26, 163);
     color: white;
 }
-
-#sun_set {
-    background: rgb(236, 37, 210);
-    color: white;
-}
-#weather_value {
-    background: rgb(25, 247, 18);
+#rainmode {
+    background: rgb(16, 26, 163);
     color: white;
 }
 #pressure {
