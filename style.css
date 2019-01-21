@@ -6,12 +6,31 @@
     background: rgb(16, 109, 163);
     color: white;
 }
-
-table
-{
-    border-collapse: collapse;
+#humidity {
+    background: rgb(16, 109, 163);
+    color: white;
 }
-td, tr, th
-{
-    border: 1px solid black;
+#pressure {
+    background: blue;
+    color: white;
+}
+#temp_min {
+    background: blue;
+    color: white;
+}
+#temp_max {
+    background: red;
+    color: white;
+}
+#speed {
+    background:green;
+    color: white;
+}
+#direction {
+    background:green;
+    color: white;
+}
+#clouds {
+    background: greenyellow;
+    color: white;
 }
