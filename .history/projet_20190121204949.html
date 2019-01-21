@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Météo du jour</title>
+        <script src="meteo.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body onload="init_page()">
+        <h1>Application M&eacute;t&eacute;o</h1>
+        <p>
+            Nom de la ville :
+            <input type="text" id="ville" value=""><br>
+        
+            <button type="button" onclick="get_temperature()">Envoyer</button>
+            <input type="checkbox" id="url_visibility">
+            
+        </p>
+                  
+       <div id="url">
+       </div>
+
+        <div id="meteo">
+        </div>
+        <table rules="all" cellpadding="5px" style="width:500px; border:solid 1px black; font-family:verdana; font-size:12px;"> 
+            <caption style="margin:5px; font-size:14px;"; id="ville"></caption> 
+            <thead> 
+               <tr style="color:steelblue;"> 
+                <php>
+                  <td> ? echo $meteo; ?</td> 
+                  <th>Titre 2</th> 
+                  <th>Titre 3</th> 
+                </php>
+               </tr> 
+            </thead> 
+            <tfoot> 
+               <tr> 
+                  <td colspan="3"> 
+                  Pied de page du tableau 
+                  Déclaré avant la balise tbody pour que le navigateur puisse l'afficher 
+                  sans avoir toutes les informations inclues dans tbody. 
+                  </td> 
+               </tr> 
+            </tfoot> 
+            <tbody> 
+               <tr> 
+                  <td rowspan="2">Cellule A1 (prend la place de A2)</td> 
+                  <td colspan="2">Cellule A3 (prend la place de B3)</td> 
+               </tr> 
+               <tr> 
+                  <td>Cellule B1</td> 
+                  <td>Cellule B2</td> 
+               </tr> 
+               <tr> 
+                  <td>Cellule C1</td> 
+                  <td>Cellule C2</td> 
+                  <td>Cellule C3</td> 
+               </tr> 
+            </tbody> 
+         </table> 
+
+
+
+
+
+
+
+
+        <div id="latitude">
+        </div>
+        <div id="longitude">
+        </div>
+        <div id="humidity">
+        </div>
+        <div id="sun_rise">
+        </div>
+        <div id="sun_set">
+        </div>
+        <div id="weather_value">
+        </div>
+        <div id="pressure">
+        </div>
+        <div id="temp_min">
+        </div>
+        <div id="temp_max">
+        </div>
+        <div id="speed">
+        </div>
+        <div id="direction">
+        </div>
+        <div id="clouds">
+        </div>
+
+        <img id="icon" src="">
+    </body>
+</html>

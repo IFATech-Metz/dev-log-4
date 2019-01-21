@@ -28,14 +28,23 @@
                   <td> Longitude </td> 
                </tr> 
             </thead> 
+            <tfoot> 
+               <tr> 
+                  <td colspan="3"> 
+                  Pied de page du tableau 
+                  Déclaré avant la balise tbody pour que le navigateur puisse l'afficher 
+                  sans avoir toutes les informations inclues dans tbody. 
+                  </td> 
+               </tr> 
+            </tfoot> 
             <tbody> 
                 <tr>
                     <td id='latitude'> </td> 
                     <td id='longitude'> </td> 
                 </tr> 
                 <tr>
-                    <td> Lev&eacute;e du soleil</td> 
-                    <td> Couch&eacute; du soleil </td> 
+                    <td> Levée du soleil</td> 
+                    <td> Coucher du soleil </td> 
                 </tr> 
                 <tr>
                     <td id='sun_rise'> </td> 
@@ -49,32 +58,46 @@
                     <td id='temp_min'> </td> 
                     <td id='temp_max'> </td> 
                 </tr> 
-                <tr>
-                    <td> Vitesse du vent </td> 
-                    <td> Direction </td> 
-                </tr>
-                <tr>
-                    <td id='speed'> </td> 
-                    <td id='direction'> </td> 
-                </tr> 
-                <tr>
-                    <td> Pression </td> 
-                    <td> Humidit&eacute; </td> 
-                </tr>
-                <tr>
-                    <td id='pressure'> </td> 
-                    <td id='humidity'> </td> 
-                </tr> 
-                <tr>
-                    <td> Nuages </td> 
-                    <td> Condition m&eacute;t&eacute;o </td> 
-                </tr>
-                <tr>
-                    <td id='clouds'> </td> 
-                    <td id='weather_value'> </td> 
-                </tr> 
-           </tbody> 
+                <tr> 
+                  <td rowspan="2">Cellule A1 (prend la place de A2)</td> 
+                  <td colspan="2">Cellule A3 (prend la place de B3)</td> 
+               </tr> 
+               <tr> 
+                  <td>Cellule B1</td> 
+                  <td>Cellule B2</td> 
+               </tr> 
+               <tr> 
+                  <td>Cellule C1</td> 
+                  <td>Cellule C2</td> 
+                  <td>Cellule C3</td> 
+               </tr> 
+            </tbody> 
          </table> 
+
+
+
+
+
+
+
+
+        
+        <div id="humidity">
+        </div>
+        <div id="weather_value">
+        </div>
+        <div id="pressure">
+        </div>
+        <div id="temp_min">
+        </div>
+        <div id="temp_max">
+        </div>
+        <div id="speed">
+        </div>
+        <div id="direction">
+        </div>
+        <div id="clouds">
+        </div>
 
         <img id="icon" src="">
     </body>
