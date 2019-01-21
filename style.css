@@ -1,13 +1,87 @@
+#html, body{
+	font-size: 100%;
+    font-family: 'Raleway', sans-serif;
+    background: url() no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+}
+
 #title {
     color: rgb(15, 4, 4);
     display: none;
 }
+
+#h1,h2,h3,h4,h5,h6,input,p,a,select{
+	font-family: 'Raleway', sans-serif;
+    margin:0;
+
+}
+.main{
+    padding:3em 0;
+    text-align: center;
+    color: #fff;
+    font-size: 2.8em;
+    margin: 0em 0 1em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+}
+    
+.button {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition: 0.3s;
+  }
+
+#button:hover {
+    background-color: #3e8e41;
+    color: white;
+}
+
+#main_grids {
+    width: 50%;
+    margin: 0 auto;
+    background: url() no-repeat 0px 0px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+}
+
+#layouts_main_grid {
+    padding:1.5em 3em;
+	background:rgba(0, 0, 0, 0.46);
+}
+
+#layouts_main_grid_left{
+	float:left;
+    width:50%;
+}   
+
+#layouts_main_grid_right{
+	float: right;
+    width: 50%;
+    text-align: center;
+    margin-top: 2em;
+}
+  
 
 
 #url {
     color: red;
     display: none;
 }
+
 #meteo {
     background: rgb(16, 109, 163);
     color: white;

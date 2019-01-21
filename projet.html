@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   
     <script src="meteo.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
    
-    <div class="head">
+    <head>
         <title>Météo du jour</title>
-    </div>
-
-    <div class="menu">
-            <ul>
-              <li>Météo</li>
-            </ul>
-    </div>
+       
+    </head>
 
     <body onload="init_page()">
-        <h1>Application M&eacute;t&eacute;o</h1>
-        <p>
-            Nom de la ville :
-            <input type="text" id="ville" value=""><br>
+        <div class="main">
+             <h1>Météo</h1>
+                <div class="main_grids"></div>
+                <div class="layouts_main_grid">
+                   
+                    <div class="layouts_main_grid_left">
+                     <input type="text" id="ville" value=""><br>
+                     <button class="button" onclick="get_temperature()">Envoyer</button>
+                    </div>
+                   
+                    <div class="layouts_main_grid_right">
+                        <canvas id="sleet" width="70" height="70"> </canvas>
+                    </div>
+                </div>
+        </div>   
         
-            <button type="button" onclick="get_temperature()">Envoyer</button>
-        </p>
-                  
+        
+
        <div id="url">
        </div>
 
@@ -37,11 +44,21 @@
         <div id="temp_max">
         </div>
         <div id="speed">
+                <div class="w3l_main_grid_left_grid1_left">
+                        <canvas id="wind" width="45" height="45"></canvas>
+                </div>
         </div>
         <div id="direction">
         </div>
         <div id="clouds">
+                <div class="w3ls_main_grid_left_grid1">
+                        <div class="w3l_main_grid_left_grid1_left">
+                            </div>
+							<div class="w3l_main_grid_left_grid1_right">
+								<canvas id="cloudy" width="45" height="45"></canvas>
+							</div>
         </div>
+       
 
         <img id="icon" src="">
     </body>
