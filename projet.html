@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Météo du jour</title>
+        <title>M&eacute;t&eacute;o du jour</title>
         <script src="meteo.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
@@ -9,16 +9,16 @@
         <p>
             Nom de la ville :
             <input type="text" id="ville" value=""><br>
-        
-            <button type="button" onclick="get_temperature()">Envoyer</button>
-            <input type="checkbox" id="url_visibility">
-                     
-            
+       
+         <button type="button" onclick="meteoComplete()">Envoyer</button>
+           <input type="checkbox" id="url_visibility">
         </p>
-                  
-       <div id="url">
-       </div>
+        <h2>Maintenant</h2>
 
+        
+        <div id="url">
+        </div>
+<!-- Le bloc météo est modifié par le JS pour afficher la réponse de la température à l'instant T-->
         <div id="meteo">
         </div>
         <div id="humidity">
@@ -37,5 +37,16 @@
         </div>
 
         <img id="icon" src="">
+
+        <h2>Pr&eacute;visions &agrave; 5 jours</h2>
+        
+        
+        <div id="urlForecast">
+        </div>
+
+        <table id = tableau>
+
+        </table>
+
     </body>
 </html>
