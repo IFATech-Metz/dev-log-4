@@ -148,7 +148,7 @@ function getMeteoinstant() {
                 var table0 = document.getElementById("tableau");
                 var row0 = table0.insertRow(0);
 
-                for (i = 0 ; i<5; i++ ){
+                for (i = 0 ; i<120; i+24 ){
 
                     var cell = row0.insertCell(0)
                     cell.innerHTML = response.list[i].main.temp_min
@@ -158,7 +158,7 @@ function getMeteoinstant() {
                 var table1 = document.getElementById("tableau");
                 var row1 = table1.insertRow(1);
              
-                for (j = 0 ; j<5; j++ ){
+                for (j = 0 ; j<120; j+24 ){
                     var cell = row1.insertCell(0)
                     cell.innerHTML = response.list[j].main.temp_max
                 }
@@ -167,7 +167,7 @@ function getMeteoinstant() {
                 var table2 = document.getElementById("tableau");
                 var row2 = table2.insertRow(2);
 
-                for (k = 0 ; k<5; k++ ){
+                for (k = 0 ; k<120; k+24 ){
                     icon = response.list[k].weather[0].icon;
                     src = "http://openweathermap.org/img/w/" + icon + ".png";
                     var cell = row2.insertCell(0);
