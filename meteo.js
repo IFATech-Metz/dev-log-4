@@ -141,12 +141,12 @@ function getMeteoinstant() {
                 document.getElementById("urlForecast").innerHTML = getforecasturl();
     
     
-               if(document.getElementById("url_visibility").checked){
+               /*if(document.getElementById("url_visibility").checked){
                     document.getElementById("url").style.display = "block";
                 }
                 else{
                     document.getElementById("url").style.display = "none";
-                }
+                }*/
     
                 var response = JSON.parse(this.responseText);
 
@@ -159,8 +159,8 @@ function getMeteoinstant() {
 
                 for (i = 0 ; i<120; i+24 ){
 
-                    var cell = row0.insertCell(0)
-                    cell.innerHTML = response.list[i].main.temp_min
+                    var cell = row0.insertCell(0);
+                    cell.innerHTML = response.list[i].main.temp_min;
                 }
                
                 //Boucle affichage température max 5 jours 
@@ -168,8 +168,8 @@ function getMeteoinstant() {
                 var row1 = table1.insertRow(1);
              
                 for (j = 0 ; j<120; j+24 ){
-                    var cell = row1.insertCell(0)
-                    cell.innerHTML = response.list[j].main.temp_max
+                    var cell = row1.insertCell(0);
+                    cell.innerHTML = response.list[j].main.temp_max;
                 }
                
                 //Boucle affichage icone 5 jours 
