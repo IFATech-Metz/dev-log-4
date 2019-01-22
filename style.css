@@ -47,47 +47,37 @@
     color: white;
 }
 
-#main_grids {
-    width: 50%;
-    margin: 0 auto;
-    background: url() no-repeat 0px 0px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-}
-
-#layouts_main_grid {
-    padding:1.5em 3em;
-	background:rgba(0, 0, 0, 0.46);
-}
-
-#layouts_main_grid_left{
-	float:left;
-    width:50%;
-}   
-
-#layouts_main_grid_right{
-	float: right;
-    width: 50%;
-    text-align: center;
-    margin-top: 2em;
-}
-  
-
-
 #url {
     color: red;
     display: none;
 }
-
 #meteo {
+    background: rgb(248, 232, 83);
+    color: white;
+}
+#latitude {
+    background: rgb(163, 75, 16);
+    color: white;
+}
+#longitude {
     background: rgb(16, 109, 163);
     color: white;
 }
 #humidity {
     background: rgb(16, 109, 163);
+    color: white;
+}
+#sun_rise {
+    background: rgb(222, 236, 28);
+    color: white;
+}
+
+#sun_set {
+    background: rgb(236, 37, 210);
+    color: white;
+}
+#weather_value {
+    background: rgb(25, 247, 18);
     color: white;
 }
 #pressure {
