@@ -1,14 +1,35 @@
-var xhr = new XMLHttpRequest();
+/*La vie est un mystère qu'il faut vivre, et non un problème à résoudre.
+*****************************Ghandi************************************
+***********************************************************************
+***********************************************************************
+****************************Appli Meteo********************************
+*******************************2019************************************
+***********************************************************************
+*****Cindy B **************Stéphanie R. *****************Muriel S.*****/
+
+
+
+/* Comme on effectue 2 requêtes différentes
+// on utilisera 2 objets requêtes différents pour 
+// éviter une confusion des données de réponse instant T et Prévisions*/
+
+var xhr = new XMLHttpRequest();         // Requête de la météo instant T
+var xhrForecast = new XMLHttpRequest(); // requête de Forecast
+
+
 
 // Forme générale du lien :
 // http://maps.openweathermap.org/maps/2.0/weather/TA2/{z}/{x}/{y}?
 // date=1527811200&opacity=0.9&fill_bound=true&appid={api_key}
 
 var base_url = "http://api.openweathermap.org/data/2.5/weather";
+var forecast_url = "http://api.openweathermap.org/data/2.5/forecast";
 var city = "Metz";
 var units = "metric";
-var appid = "f5e810531af1756846022c6f387acf25";
+var appid = "20f42eda5e8eb5541a9e68271d63b657";
 
+
+//Va chercher l'url meteo Instant clic
 function get_url() {
     return base_url + "?"
         + "q=" + city + "&"
@@ -17,93 +38,50 @@ function get_url() {
         
 }
 
+//Va chercher l'url meteo prévisions +5J
+function getforecasturl() {
+    return forecast_url + "?"
+        + "q=" + city + "&"
+        + "units=" + units + "&"
+        + "appid=" + appid;
+        
+}
+
 function init_page() {
+
+    //Préparation des actions à effectuer lors de l'événement "réponse" du site OpenWP
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
         
             document.getElementById("url").innerHTML = get_url();
-//Temperature
+            
+            //Température
             var response = JSON.parse(this.responseText);
-            var temperature = response.main.temp;
-//Latitude et longitude
-            var latitude = response.coord.lat;
-            var longitude = response.coord.lon;
-//Humidité  
-           var humidity = response.main.humidity;
-//levé et couché de soleil
-            // Create a new JavaScript Date object based on the timestamp
-            // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-        var dateL = new Date(response.sys.sunrise*1000);
-        // Hours part from the timestamp
-        var hoursL = dateL.getHours();
-        // Minutes part from the timestamp
-        var minutesL = "0" + dateL.getMinutes();
-        // Seconds part from the timestamp
-        var secondsL = "0" + dateL.getSeconds();
-
-        // Will display time in 10:30:23 format
-        var formattedTimeL = hoursL + ':' + minutesL.substr(-2) + ':' + secondsL.substr(-2);
-            var sun_rise = formattedTimeL;
-
-        var dateC = new Date(response.sys.sunset*1000);
-        // Hours part from the timestamp
-        var hoursC = dateC.getHours();
-        // Minutes part from the timestamp
-        var minutesC = "0" + dateC.getMinutes();
-        // Seconds part from the timestamp
-        var secondsC = "0" + dateC.getSeconds();
-
-        // Will display time in 10:30:23 format
-        var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
-        var sun_set = formattedTimeC;    
-// condition météo
-            var weather_value = response.weather[0].main
-//pression
-            var pressure = response.main.pressure;  
-//temp_min
-            var temp_min = response.main.temp_min;  
-//temp_max
-            var temp_max = response.main.temp_max;  
-//wind speed
-            var speed = response.wind.speed; 
-//wind direction
-            var direction = response.wind.deg;  
-//clouds
-            var clouds = response.clouds.all; 
-//Icone
+            var temperature = response.main.temp
+            document.getElementById("meteo").innerHTML = temperature;
+            
+            //Icone
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
-
-            
-            document.getElementById("meteo").innerHTML = temperature;
-            document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("longitude").innerHTML = longitude;
-            document.getElementById("humidity").innerHTML = humidity;
-            document.getElementById("sun_rise").innerHTML = sun_rise;
-            document.getElementById("sun_set").innerHTML = sun_set;
-            document.getElementById("weather_value").innerHTML = weather_value;
-            document.getElementById("pressure").innerHTML = pressure;
-            document.getElementById("temp_min").innerHTML = temp_min;
-            document.getElementById("temp_max").innerHTML = temp_max;
-            document.getElementById("speed").innerHTML = speed;
-            document.getElementById("direction").innerHTML = direction;
-            document.getElementById("clouds").innerHTML = clouds;
             document.getElementById("icon").src = src;
         }
     }
-    
+    //Envoie la requete au serveur
     xhr.open("GET", get_url(), true)
     xhr.send()
 }
-function get_temperature() {
+
+//Fonction qui va chercher la meteo à l'instant clic
+function getMeteoinstant() {
     city = document.getElementById("ville").value;
 
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //TODO
+
             document.getElementById("url").innerHTML = get_url();
 
-            if(document.getElementById("url_visibility").checked){
+
+           if(document.getElementById("url_visibility").checked){
                 document.getElementById("url").style.display = "block";
             }
             else{
@@ -112,62 +90,79 @@ function get_temperature() {
 
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-            var latitude = response.coord.lat;
-            var longitude = response.coord.lon;
-            var humidity = response.main.humidity;
-            var dateL = new Date(response.sys.sunrise*1000);
-            // Hours part from the timestamp
-            var hoursL = dateL.getHours();
-            // Minutes part from the timestamp
-            var minutesL = "0" + dateL.getMinutes();
-            // Seconds part from the timestamp
-            var secondsL = "0" + dateL.getSeconds();
 
-            // Will display time in 10:30:23 format
-            var formattedTimeL = hoursL + ':' + minutesL.substr(-2) + ':' + secondsL.substr(-2);
-            var sun_rise = formattedTimeL;
-
-           var dateC = new Date(response.sys.sunset*1000);
-            // Hours part from the timestamp
-            var hoursC = dateC.getHours();
-            // Minutes part from the timestamp
-            var minutesC = "0" + dateC.getMinutes();
-            // Seconds part from the timestamp
-            var secondsC = "0" + dateC.getSeconds();
-
-            // Will display time in 10:30:23 format
-            var formattedTimeC = hoursC + ':' + minutesC.substr(-2) + ':' + secondsC.substr(-2);
-            var sun_set = formattedTimeC;
-            
-            var weather_value = response.weather[0].main;
-            var pressure = response.main.pressure;
-            var temp_min = response.main.temp_min;
-            var temp_max = response.main.temp_max;
-            var speed = response.wind.speed;
-            var direction = response.wind.deg;
-            var clouds = response.clouds.all;
-              
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
-            document.getElementById("meteo").innerHTML = temperature;
-            document.getElementById("latitude").innerHTML = latitude;
-            document.getElementById("longitude").innerHTML = longitude;
-            document.getElementById("humidity").innerHTML = humidity;
-            document.getElementById("sun_rise").innerHTML = sun_rise;
-            document.getElementById("sun_set").innerHTML = sun_set;
-            document.getElementById("weather_value").innerHTML = weather_value;
-            document.getElementById("pressure").innerHTML = pressure;
-            document.getElementById("temp_min").innerHTML = temp_min;
-            document.getElementById("temp_max").innerHTML = temp_max;
-            document.getElementById("speed").innerHTML = speed;
-            document.getElementById("direction").innerHTML = direction;
-            document.getElementById("clouds").innerHTML = clouds;
-            
+            document.getElementById("meteo").innerHTML = "La temp&eacute;rature est de " +temperature+ "&deg;C &agrave; "+city;
             document.getElementById("icon").src = src;
         }
     }
-    
     xhr.open("GET", get_url(), true)
     xhr.send()
 }
+
+    //Fonction qui va chercher la météo à 5 jours
+     function getPrevision() {
+        city = document.getElementById("ville").value;
+    
+        xhrForecast.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+    
+                document.getElementById("urlForecast").innerHTML = getforecasturl();
+    
+    
+               if(document.getElementById("url_visibility").checked){
+                    document.getElementById("url").style.display = "block";
+                }
+                else{
+                    document.getElementById("url").style.display = "none";
+                }
+    
+                var response = JSON.parse(this.responseText);
+
+                //Création de tableau en JS. Si on veut ajouter d'autres paramètres
+                //le programme crée d'autres lignes et le css est appliqué directement
+
+                //Boucle affichage température min 5 jours : stockage dans une ligne du tableau
+                var table0 = document.getElementById("tableau");
+                var row0 = table0.insertRow(0);
+
+                for (i = 0 ; i<40; i+8 ){
+                    var cell = row0.insertCell(0)
+                    cell.innerHTML = response.list[i].main.temp_min
+                }
+               
+                //Boucle affichage température max 5 jours 
+                var table1 = document.getElementById("tableau");
+                var row1 = table1.insertRow(1);
+             
+                for (j = 0 ; j<40; j+8 ){
+                    var cell = row1.insertCell(0)
+                    cell.innerHTML = response.list[j].main.temp_max
+                }
+               
+                //Boucle affichage icone 5 jours 
+                var table2 = document.getElementById("tableau");
+                var row2 = table2.insertRow(2);
+
+                for (k = 0 ; k<40; k+8 ){
+                    icon = response.list[k].weather[0].icon;
+                    src = "http://openweathermap.org/img/w/" + icon + ".png";
+                    var cell = row2.insertCell(0);
+                    cell.innerHTML = "<img src ='" + src +"'>";
+                   
+                }
+                
+            }
+        }
+
+        xhrForecast.open("GET", getforecasturl(), true)
+        xhrForecast.send();
+    }
+    
+    //Fonction qui appelle les deux fonctions meteo au clic
+    function meteoComplete() {
+        getMeteoinstant();
+        getPrevision();
+    }
