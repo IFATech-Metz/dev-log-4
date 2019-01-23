@@ -1,80 +1,96 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Météo du jour</title>
+        <title>Météo Devlog</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="meteo.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
+
     <body onload="init_page()">
-        <h1>Application M&eacute;t&eacute;o</h1>
+        <h1>Application météo</h1>
         <p>
-            Nom de la ville :
+            Ville :
             <input type="text" id="ville" value=""><br>
-        
-            <button type="button" onclick="get_temperature()">Envoyer</button>
-            <input type="checkbox" id="url_visibility">
-            
+       
+         <button type="button" onclick="meteoComplete()">Envoyer</button>
+           <input type="checkbox" id="url_visibility">
+
+        <div id="url"></div>
         </p>
-       <div id="url">
-       </div>
+       
+        <h2>Maintenant</h2>
 
-       <div id="meteo">
-       </div>
-        <table rules="all" cellpadding="5px" style="width:500px; border:solid 1px black; font-family:verdana; font-size:12px;"> 
-            <caption style="margin:5px; font-size:14px;"; id="ville"></caption> 
-            <thead> 
-               <tr style="color:steelblue;"> 
-                  <td> Latitude </td> 
-                  <td> Longitude </td> 
-               </tr> 
-            </thead> 
-            <tbody> 
-                <tr>
-                    <td id='latitude'> </td> 
-                    <td id='longitude'> </td> 
-                </tr> 
-                <tr>
-                    <td> Lev&eacute;e du soleil</td> 
-                    <td> Couch&eacute; du soleil </td> 
-                </tr> 
-                <tr>
-                    <td id='sun_rise'> </td> 
-                    <td id='sun_set'> </td> 
-                </tr> 
-                <tr>
-                    <td> Temp&eacute;rature minimale </td> 
-                    <td> Temp&eacute;rature maximale </td> 
-                </tr> 
-                <tr>
-                    <td id='temp_min'> </td> 
-                    <td id='temp_max'> </td> 
-                </tr> 
-                <tr>
-                    <td> Vitesse du vent </td> 
-                    <td> Direction </td> 
-                </tr>
-                <tr>
-                    <td id='speed'> </td> 
-                    <td id='direction'> </td> 
-                </tr> 
-                <tr>
-                    <td> Pression </td> 
-                    <td> Humidit&eacute; </td> 
-                </tr>
-                <tr>
-                    <td id='pressure'> </td> 
-                    <td id='humidity'> </td> 
-                </tr> 
-                <tr>
-                    <td> Nuages </td> 
-                    <td> Condition m&eacute;t&eacute;o </td> 
-                </tr>
-                <tr>
-                    <td id='clouds'> </td> 
-                    <td id='weather_value'> </td> 
-                </tr> 
-           </tbody> 
-         </table> 
+        <div id="meteo">
+        </div>
 
+             <table rules="all" cellpadding="5px" style="width:500px; border:solid 1px black; font-family:verdana; font-size:12px;"> 
+                 <caption style="margin:5px; font-size:14px;"; id="ville"></caption> 
+                 <thead> 
+                    <tr> 
+                       <td> Latitude </td> 
+                       <td> Longitude </td> 
+                    </tr> 
+                 </thead> 
+                 <tbody> 
+                     <tr>
+                         <td id='latitude'> </td> 
+                         <td id='longitude'> </td> 
+                     </tr> 
+                     <tr>
+                         <td> Levé du soleil</td> 
+                         <td> Couché du soleil </td> 
+                     </tr> 
+                     <tr>
+                         <td id='sun_rise'> </td> 
+                         <td id='sun_set'> </td> 
+                     </tr> 
+                     <tr>
+                         <td> Température minimale </td> 
+                         <td> Température maximale </td> 
+                     </tr> 
+                     <tr>
+                         <td id='temp_min'> </td> 
+                         <td id='temp_max'> </td> 
+                     </tr> 
+                     <tr>
+                         <td> Vitesse du vent </td> 
+                         <td> Direction </td> 
+                     </tr>
+                     <tr>
+                         <td id='speed'> </td> 
+                         <td id='direction'></td> 
+                     </tr> 
+                     <tr>
+                         <td> Pression </td> 
+                         <td> Humidité </td> 
+                     </tr>
+                     <tr>
+                        <td id='pressure'></td>
+                         <td id='humidity'> </td> 
+                     </tr> 
+                     <tr>
+                         <td> Nuages  </td> 
+                         <td> Condition météo </td> 
+                     </tr>
+                     <tr>
+                         <td id='clouds'> % </td> 
+                         <td id='weather_value'> </td> 
+                     </tr> 
+                </tbody> 
+              </table> 
+            
         <img id="icon" src="">
+
+        <h2>Prévision sur 5 jours :</h2>
+        <div id="urlForecast">
+        </div>
+
+        <table id = tableau>
+        </table>
     </body>
+    <footer>
+        Projet réalisé par Stéphanie, Muriel et Cindy    
+    </footer>
 </html>
