@@ -55,17 +55,69 @@ function init_page() {
         
             document.getElementById("url").innerHTML = get_url();
             
-            //Température
-            var response = JSON.parse(this.responseText);
-            var temperature = response.main.temp
-            document.getElementById("meteo").innerHTML = temperature;
-            
-            //Icone
-            var icon = response.weather[0].icon;
-            var src = "http://openweathermap.org/img/w/" + icon + ".png";
+    //Température
+        var response = JSON.parse(this.responseText);
+        var temperature = response.main.temp;
+        document.getElementById("meteo").innerHTML = temperature;
+
+    //Latitude
+        var latitude = response.coord.lat;
+
+    //Longitude
+        var longitude = response.coord.lon;
+    
+    //precipitation
+        //var rain = response.precitation.value;
+        //var rainmode = response.precitation.mode;
+
+    //Humidité  
+        var humidity = response.main.humidity;
+
+    //levé et couché de soleil
+        var sun_rise = response.sun_rise;
+        var sun_set = response.sun_set;
+    //pression
+        var pressure = response.main.pressure;  
+
+    //temp_min
+        var temp_min = response.main.temp_min; 
+
+    //temp_max
+        var temp_max = response.main.temp_max;  
+
+    //wind speed
+        var speed = response.wind.speed; 
+
+    //wind direction
+        var direction = response.wind.deg;  
+
+    //clouds
+        var clouds = response.clouds.all; 
+
+    //Icone
+        var icon = response.weather[0].icon;
+        var src = "http://openweathermap.org/img/w/" + icon + ".png";
+        document.getElementById("icon").src = src;
+
+        document.getElementById("meteo").innerHTML = temperature;
+            document.getElementById("latitude").innerHTML = latitude;
+            document.getElementById("longitude").innerHTML = longitude;
+            //document.getElementById("rain").innerHTML = rain;
+            //voir pour mettre la météo
+            //document.getElementById("rainmode").innerHTML = rainmode;
+            document.getElementById("humidity").innerHTML = humidity;
+            document.getElementById("sun_rise").innerHTML = sun_rise;
+            document.getElementById("sun_set").innerHTML = sun_set;
+            document.getElementById("pressure").innerHTML = pressure;
+            document.getElementById("temp_min").innerHTML = temp_min;
+            document.getElementById("temp_max").innerHTML = temp_max;
+            document.getElementById("speed").innerHTML = speed;
+            document.getElementById("direction").innerHTML = direction;
+            document.getElementById("clouds").innerHTML = clouds;
             document.getElementById("icon").src = src;
         }
     }
+  
     //Envoie la requete au serveur
     xhr.open("GET", get_url(), true)
     xhr.send()
@@ -90,12 +142,40 @@ function getMeteoinstant() {
 
             var response = JSON.parse(this.responseText);
             var temperature = response.main.temp;
-
+            var latitude = response.coord.lat;
+            var longitude = response.coord.lon;
+            var rain = response.precitation.value;
+            //var rainmode = response.precitation.mode;
+            var humidity = response.main.humidity
+            var sun_rise = response.sun_rise;
+            var sun_set = response.sun_set;
+            var pressure = response.main.pressure
+            var temp_min = response.main.temp_min
+            var temp_max = response.main.temp_max
+            var speed = response.wind.speed
+            var direction = response.wind.deg
+            var clouds = response.clouds.all
+            
             var icon = response.weather[0].icon;
             var src = "http://openweathermap.org/img/w/" + icon + ".png";
 
-            document.getElementById("meteo").innerHTML = "La temp&eacute;rature est de " +temperature+ "&deg;C &agrave; "+city;
+            document.getElementById("meteo").innerHTML = temperature;
+            document.getElementById("latitude").innerHTML = latitude;
+            document.getElementById("longitude").innerHTML = longitude;
+            //document.getElementById("rain").innerHTML = rain;
+            //document.getElementById("rainmode").innerHTML = rainmode;
+            document.getElementById("humidity").innerHTML = humidity;
+            document.getElementById("sun_rise").innerHTML = sun_rise;
+            document.getElementById("sun_set").innerHTML = sun_set;
+            document.getElementById("pressure").innerHTML = pressure;
+            document.getElementById("temp_min").innerHTML = temp_min;
+            document.getElementById("temp_max").innerHTML = temp_max;
+            document.getElementById("speed").innerHTML = speed;
+            document.getElementById("direction").innerHTML = direction;
+            document.getElementById("clouds").innerHTML = clouds;
+            document.getElementById("meteo").innerHTML = "La température sera de " +temperature+ "° "+city;
             document.getElementById("icon").src = src;
+            
         }
     }
     xhr.open("GET", get_url(), true)
@@ -128,7 +208,7 @@ function getMeteoinstant() {
                 var table0 = document.getElementById("tableau");
                 var row0 = table0.insertRow(0);
 
-                for (i = 0 ; i<40; i+8 ){
+                for (i = 0 ; i<5; i++ ){
                     var cell = row0.insertCell(0)
                     cell.innerHTML = response.list[i].main.temp_min
                 }
@@ -137,7 +217,7 @@ function getMeteoinstant() {
                 var table1 = document.getElementById("tableau");
                 var row1 = table1.insertRow(1);
              
-                for (j = 0 ; j<40; j+8 ){
+                for (j = 0 ; j<5; j++ ){
                     var cell = row1.insertCell(0)
                     cell.innerHTML = response.list[j].main.temp_max
                 }
@@ -146,14 +226,12 @@ function getMeteoinstant() {
                 var table2 = document.getElementById("tableau");
                 var row2 = table2.insertRow(2);
 
-                for (k = 0 ; k<40; k+8 ){
+                for (k = 0 ; k<5; k++ ){
                     icon = response.list[k].weather[0].icon;
                     src = "http://openweathermap.org/img/w/" + icon + ".png";
                     var cell = row2.insertCell(0);
                     cell.innerHTML = "<img src ='" + src +"'>";
-                   
                 }
-                
             }
         }
 
