@@ -1,70 +1,21 @@
-/*Bouton - "Envoyer*/
-button {
-    outline: none !important;
-	border: none;
-	background: transparent;
+#url{
+    visibility: hidden;
 }
 
-button:hover {
-	cursor: pointer;
+#urlForecast{
+    visibility: hidden;
 }
 
-.contact2-form-btn {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    min-width: 244px;
-    height: 50px;
-  
-   
-  
-    font-family: Poppins-Medium;
-    font-size: 16px;
-    color: #fff;
-    line-height: 1.2;
-    
-  
-  }
-
-#url {
-    color: red;
-    display: none;
+#url_visibility{
+    visibility: hidden;
 }
-#meteo {
-    background: rgb(16, 109, 163);
-    color: white;
+.navbar.navbar-1 .navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
 }
 
-#humidity {
-    background: rgb(16, 109, 163);
-    color: white;
+.navbar{
+    background: #393c3b;
 }
-#pressure {
-    background: blue;
-    color: white;
-}
-#temp_min {
-    background: blue;
-    color: white;
-}
-#temp_max {
-    background: red;
-    color: white;
-}
-#speed {
-    background:green;
-    color: white;
-}
-#direction {
-    background:green;
-    color: white;
-}
-#clouds {
-    background: greenyellow;
-    color: white;
+.ville{
+    border: #1d2124;
 }
