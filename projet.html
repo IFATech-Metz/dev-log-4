@@ -35,7 +35,6 @@
 <!--Les indésirables-->
 <input type="checkbox" id="url_visibility">
 <div id="url"></div>
-       
 
     <!--Affichage résultats-->
         <div class="container">
@@ -47,12 +46,13 @@
                             </div>
                             <article>
                   <!--Affichage des precisions actuel (ville par défaut Metz)-->               
-                <div class="now">
-                    <table id="resultats"></caption>
-                                        <tr>
-                                        <td> Température minimale </td>
-                                        <td> Température maximale </td>
-                                        </tr>
+                        <div class="table-reponsive">
+                            <table classe="table" id="resultats">
+                                <thead>
+                                        <th> Température minimale </th>
+                                        <th> Température maximale </th>
+                                </thead>
+                                <tbody>
                                         <tr>
                                         <td id='temp_min'> </td>
                                         <td id='temp_max'> </td>
@@ -89,68 +89,32 @@
                                         <td id='latitude'> </td>
                                         <td id='longitude'> </td>
                                         </tr>
+                                    </tbody>
                                     </table>
                                 </article>
-                            </div>
-                        </div>
-            
-            
-            
-                    <div class="row">
-                            <div class="col-sm">
-                                <div id="urlForecast"></div>
-                                <h2>Prévisions à 5 jours :</h2>
-                        <!--Affichage résultats +5j-->
-                                <table id ="tableau"></table>
-                            </div>
-                        </div>
-                    
+                            <div class="col-sm" position:="center">
+                                        <div id="prev" class="previsionr">
+                                        <div id="urlForecast">Prévisions à 5jours :</div>
+                                            </div>
+                            <!--Affichage résultats +5j-->
+                                    <table id ="tableau"></table>
+                                </div>
 
-        </div>
+                            </div>
+                        </div>
+            </div>
+            
+    
+        
 
 </body>
-
-<!-- Footer -->
-    <footer class="page-footer font-small unique-color-dark">
-        <div style="background-color :honeydew;">
-          <div class="container">
-            <div class="row py-4 d-flex align-items-center">
-                <div class="col-md-6 col-lg-7 text-center text-md-right">
-                </div>
-            </div>
-          </div>
+    <!-- Footer -->
+    <mdb-footer  class="font-small pt-4 mt-4">
+        <div class="footer-copyright text-center py-3">
+          <mdb-container fluid>
+            &copy; 2019 Copyright:  Muriel - Stéphanie - Cindy </a>
+          </mdb-container>
         </div>
-        <!-- Footer contenu -->
-        <div class="container text-center text-md-left mt-5">
-            <div class="row mt-3">
-                    <!-- Grid projet -->
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold">Devlog4</h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>Merci et à bientôt. </p>
-                        <P>Projet d'application météo réalisé par Cindy B. Stéphanie R. et Muriel S</p>
-                    </div>
-    
-                    <!--Grid tech -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase font-weight-bold">Technologies :</h6>
-                        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                        <p>
-                            <a>HTML</a>
-                            <a>bootstrap</a>
-                            <a>Javascript</a>
-                            <a>GitHubL</a>
-                        </p>
-                    </div>
-                    <!-- Copyright -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <div class="text-uppercase font-weight-bold">© 2019 CB-MS-SR
-                        </div>
-                    </div>
-          </div>
-        </div>
-        
-           
-      </footer>
-   
+      </mdb-footer>
+      
 </html>

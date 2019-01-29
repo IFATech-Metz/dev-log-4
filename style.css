@@ -1,13 +1,4 @@
 
-#html {
-    margin:0;
-    padding:0;
-    background: url(img/fond.jpg) no-repeat center fixed; 
-    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-    background-size: cover; /* version standardisée */
-}
-
-
 #url{
     visibility: hidden;
 }
@@ -20,12 +11,12 @@
     visibility: hidden;
 }
 
-.now {
-    background: #fff;
-	position: relative;
-    -webkit-box-align: start;
+.table-reponsive{
+    background-color: rgb(80, 191, 255);
+    position: relative;
+    text-align: center;
     border-radius: 10px;
-	box-shadow: 0px 1px 10px 0px cadetblue;
+	
 }
 
 #card {
@@ -36,8 +27,14 @@
    
 }
 
-
-
+#prev {
+    background-color: rgb(80, 191, 255);
+	background: #fff;
+	position: static;
+    text-align: center;
+    text-size-adjust: 10px;
+   
+}
 .temp {
 	font-size: 73px;
 	display: block;
