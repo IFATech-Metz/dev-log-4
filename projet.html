@@ -1,96 +1,132 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Météo Devlog</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="meteo.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
+<head>
+    <title>Météo Devlog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="meteo.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
-    <body onload="init_page()">
-        <h1>Application météo</h1>
-        <p>
-            Ville :
-            <input type="text" id="ville" value=""><br>
-       
-         <button type="button" onclick="meteoComplete()">Envoyer</button>
-           <input type="checkbox" id="url_visibility">
+</head>
 
+<body onload="init_page()">
+<!--Navbar-->
+<nav class="navbar navbar-light navbar-1 white">
+    <a class="navbar-brand" href="#">Meteo</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+            aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">A propos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--/.Navbar-->
+
+    <!--Champ recherche-->
+    <div class="row m-2">
+            <div class="sm-6">
+                <div class="sm-3"></div>
+                <div class="sm-3">
+                    <input id="ville" type="text" placeholder="Votre ville">
+                </div>
+            </div>
+        <button type="button" onclick="meteoComplete()">Envoyer</button>
+    </div>
+        <!--Les indésirables-->
+        <input type="checkbox" id="url_visibility">
         <div id="url"></div>
-        </p>
-       
-        <h2>Maintenant</h2>
 
-        <div id="meteo">
+    <!--Affichage résultats-->
+    <div class="row m-2">
+        <div class="col-sm-6">
+            <img id="icon" src="">
+            <div id="meteo"></div>
+            <table id="resultats"></caption>
+                <tr>
+                    <td> Température minimale </td>
+                    <td> Température maximale </td>
+                </tr>
+                <tr>
+                    <td id='temp_min'> </td>
+                    <td id='temp_max'> </td>
+                </tr>
+                <tr>
+                    <td> Lever du soleil</td>
+                    <td> Coucher du soleil </td>
+                </tr>
+                <tr>
+                    <td id='sun_rise'> </td>
+                    <td id='sun_set'> </td>
+                </tr>
+
+                <tr>
+                    <td> Vitesse du vent </td>
+                    <td> Direction </td>
+                </tr>
+                <tr>
+                    <td id='speed'> </td>
+                    <td id='direction'></td>
+                </tr>
+                <tr>
+                    <td> Pression </td>
+                    <td> Humidité </td>
+                </tr>
+                <tr>
+                    <td id='pressure'></td>
+                    <td id='humidity'></td>
+                </tr>
+                <tr>
+                    <td> Latitude </td>
+                    <td> Longitude </td>
+                </tr>
+                <tr>
+                    <td id='latitude'> </td>
+                    <td id='longitude'> </td>
+                </tr>
+            </table>
         </div>
 
-             <table rules="all" cellpadding="5px" style="width:500px; border:solid 1px black; font-family:verdana; font-size:12px;"> 
-                 <caption style="margin:5px; font-size:14px;"; id="ville"></caption> 
-                 <thead> 
-                    <tr> 
-                       <td> Latitude </td> 
-                       <td> Longitude </td> 
-                    </tr> 
-                 </thead> 
-                 <tbody> 
-                     <tr>
-                         <td id='latitude'> </td> 
-                         <td id='longitude'> </td> 
-                     </tr> 
-                     <tr>
-                         <td> Levé du soleil</td> 
-                         <td> Couché du soleil </td> 
-                     </tr> 
-                     <tr>
-                         <td id='sun_rise'> </td> 
-                         <td id='sun_set'> </td> 
-                     </tr> 
-                     <tr>
-                         <td> Température minimale </td> 
-                         <td> Température maximale </td> 
-                     </tr> 
-                     <tr>
-                         <td id='temp_min'> </td> 
-                         <td id='temp_max'> </td> 
-                     </tr> 
-                     <tr>
-                         <td> Vitesse du vent </td> 
-                         <td> Direction </td> 
-                     </tr>
-                     <tr>
-                         <td id='speed'> </td> 
-                         <td id='direction'></td> 
-                     </tr> 
-                     <tr>
-                         <td> Pression </td> 
-                         <td> Humidité </td> 
-                     </tr>
-                     <tr>
-                        <td id='pressure'></td>
-                         <td id='humidity'> </td> 
-                     </tr> 
-                     <tr>
-                         <td> Nuages  </td> 
-                         <td> Condition météo </td> 
-                     </tr>
-                     <tr>
-                         <td id='clouds'> % </td> 
-                         <td id='weather_value'> </td> 
-                     </tr> 
-                </tbody> 
-              </table> 
-            
-        <img id="icon" src="">
+    <div class="col-sm-6">
+        <div id="urlForecast"></div>
+        <!--Affichage résultats +5j-->
+        <table id ="tableau"></table>
+    </div>
+</div>
+</body>
 
-        <h2>Prévision sur 5 jours :</h2>
-        <div id="urlForecast">
-        </div>
+<footer class="page-footer font-small teal pt-4">
 
-        <table id = tableau>
-        </table>
-    </body>
-    <footer>
-        Projet réalisé par Stéphanie, Muriel et Cindy    
-    </footer>
+<div class="container-fluid text-center text-md-left">
+<div class="row">
+    <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase font-weight-bold"></h5>
+        <p>Projet d'application météo réalisé par Cindy B. Stéphanie R. et Muriel S.</p>
+
+    </div>
+
+    <hr class="clearfix w-100 d-md-none pb-3">
+    <div class="col-md-6 mb-md-0 mb-3">
+        <h5 class="text-uppercase font-weight-bold"></h5>
+        <p>Merci et à bientôt</p>
+    </div>
+</div>
+</div>
+<div class="footer-copyright text-center py-3">© 2019 Copyright: CB SR MS
+<a href="https://mdbootstrap.com/education/bootstrap/"></a>
+</div>
+</footer>
+   
 </html>

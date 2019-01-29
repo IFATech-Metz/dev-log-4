@@ -1,37 +1,21 @@
-#url {
-    color: red;
-    display: none;
-}
-#meteo {
-    background: rgb(16, 109, 163);
-    color: white;
+#url{
+    visibility: hidden;
 }
 
-#humidity {
-    background: rgb(16, 109, 163);
-    color: white;
+#urlForecast{
+    visibility: hidden;
 }
-#pressure {
-    background: blue;
-    color: white;
+
+#url_visibility{
+    visibility: hidden;
 }
-#temp_min {
-    background: blue;
-    color: white;
+.navbar.navbar-1 .navbar-toggler-icon {
+    background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
 }
-#temp_max {
-    background: red;
-    color: white;
+
+.navbar{
+    background: #393c3b;
 }
-#speed {
-    background:green;
-    color: white;
-}
-#direction {
-    background:green;
-    color: white;
-}
-#clouds {
-    background: greenyellow;
-    color: white;
+.ville{
+    border: #1d2124;
 }
