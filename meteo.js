@@ -115,7 +115,7 @@ function init_page() {
             //Humidité
             var humidity = response.main.humidity;
 
-            //lever et coucher de soleil
+            //Lever et coucher de soleil
 
             var sun_rise = timeConverter(Number(response.sys.sunrise));
             var sun_set = timeConverter(Number(response.sys.sunset));
@@ -277,8 +277,9 @@ function getPrevision() {
     xhrForecast.send();
 }
 
-//Fonction qui appelle les deux fonctions meteo au clic
+//Fonction qui appelle les deux fonctions meteo au clic et vide le tableau à chaque requête
 function meteoComplete() {
+    document.getElementById("tableau").innerHTML= "";
     getMeteoinstant();
     getPrevision();
 }
