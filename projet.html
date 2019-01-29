@@ -18,6 +18,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <!--Champ recherche-->
                 <form style: center class="navbar-form navbar-left">
                     <div class="input-group">
                       <input id="ville" type="text"  placeholder="Tapez votre ville..." >
@@ -30,29 +31,24 @@
                   </form>
             </div>
       </nav>
-
-    <!--Champ recherche-->
-
                 
 <!--Les indésirables-->
 <input type="checkbox" id="url_visibility">
 <div id="url"></div>
-        </div>
+       
 
     <!--Affichage résultats-->
         <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-sm">
                             <div id="card" class="weater">
                                 <div id="meteo"></div>
                                 <img id="icon" src="">
                             </div>
                             <article>
-                                
-                       
-                            <div class="now">
-                                    <table id="resultats"></caption>
-                                    
+                  <!--Affichage des precisions actuel (ville par défaut Metz)-->               
+                <div class="now">
+                    <table id="resultats"></caption>
                                         <tr>
                                         <td> Température minimale </td>
                                         <td> Température maximale </td>
@@ -74,8 +70,8 @@
                                         <td> Direction </td>
                                         </tr>
                                         <tr>
-                                            <td id='speed'>
-                                            <td id='direction'></td>
+                                        <td id='speed'>
+                                        <td id='direction'></td>
                                         </tr>
                                         <tr>
                                         <td> Pression </td>
@@ -97,20 +93,18 @@
                                 </article>
                             </div>
                         </div>
-            </div>
             
-            <div class="container">
-                
-                    <div class="no-gutters">
-                            <div class="col-sm-6">
-                                    
+            
+            
+                    <div class="row">
+                            <div class="col-sm">
                                 <div id="urlForecast"></div>
                                 <h2>Prévisions à 5 jours :</h2>
-                                <!--Affichage résultats +5j-->
+                        <!--Affichage résultats +5j-->
                                 <table id ="tableau"></table>
                             </div>
-                    </div>
-            </div>
+                        </div>
+                    
 
         </div>
 
