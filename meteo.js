@@ -245,16 +245,16 @@ function getPrevision() {
             var table0 = document.getElementById("tableau");
             var row0 = table0.insertRow(0);
 
-            for (i = 0 ; i<5; i++ ){
+            for (i = 0 ; i < 40; i=i+8 ){
                 var cell = row0.insertCell(0)
                 cell.innerHTML = ((response.list[i].main.temp_min).toFixed(1));
             }
 
-            //Boucle affichage température max 5 jours
+            //Boucle affichage température 5 jours
             var table1 = document.getElementById("tableau");
             var row1 = table1.insertRow(1);
 
-            for (j = 0 ; j<5; j++ ){
+            for (j = 3 ; j < 40; j=j+8 ){
                 var cell = row1.insertCell(0)
                 cell.innerHTML = ((response.list[j].main.temp_max).toFixed(1));
             }
@@ -263,7 +263,7 @@ function getPrevision() {
             var table2 = document.getElementById("tableau");
             var row2 = table2.insertRow(2);
 
-            for (k = 0 ; k<5; k++ ){
+            for (k = 0 ; k < 40; k=k+8){
                 icon = response.list[k].weather[0].icon;
                 src = "http://openweathermap.org/img/w/" + icon + ".png";
                 var cell = row2.insertCell(0);
