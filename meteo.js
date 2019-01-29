@@ -13,9 +13,10 @@
 // on utilisera 2 objets requêtes différents pour 
 // éviter une confusion des données de réponse instant T et Prévisions*/
 
+
+
 var xhr = new XMLHttpRequest();         // Requête de la météo instant T
 var xhrForecast = new XMLHttpRequest(); // requête de Forecast
-
 
 
 // Forme générale du lien :
@@ -35,7 +36,6 @@ function get_url() {
         + "q=" + city + "&"
         + "units=" + units + "&"
         + "appid=" + appid;
-        
 }
 
 //Va chercher l'url meteo prévisions +5J
@@ -44,7 +44,6 @@ function getforecasturl() {
         + "q=" + city + "&"
         + "units=" + units + "&"
         + "appid=" + appid;
-        
 }
 
 function init_page() {
@@ -117,17 +116,16 @@ function init_page() {
             document.getElementById("icon").src = src;
         }
     }
-  
     //Envoie la requete au serveur
     xhr.open("GET", get_url(), true)
     xhr.send()
 }
-
+   
 //Fonction qui va chercher la meteo à l'instant clic
-function getMeteoinstant() {
-    city = document.getElementById("ville").value;
+    function getMeteoinstant() {
+        city = document.getElementById("ville").value;
 
-    xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
 
             document.getElementById("url").innerHTML = get_url();
@@ -175,7 +173,6 @@ function getMeteoinstant() {
             document.getElementById("clouds").innerHTML = clouds;
             document.getElementById("meteo").innerHTML = "La température sera de " +temperature+ "° "+city;
             document.getElementById("icon").src = src;
-            
         }
     }
     xhr.open("GET", get_url(), true)

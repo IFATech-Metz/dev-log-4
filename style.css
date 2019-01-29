@@ -1,83 +1,47 @@
-#html, body{
-	font-size: 100%;
-    font-family: 'Raleway', sans-serif;
-    background: url() no-repeat 0px 0px;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    background-attachment: fixed;
+/*Bouton - "Envoyer*/
+button {
+    outline: none !important;
+	border: none;
+	background: transparent;
 }
 
-#title {
-    color: rgb(15, 4, 4);
-    display: none;
+button:hover {
+	cursor: pointer;
 }
 
-#h1,h2,h3,h4,h5,h6,input,p,a,select{
-	font-family: 'Raleway', sans-serif;
-    margin:0;
-
-}
-.main{
-    padding:3em 0;
-    text-align: center;
-    color: #fff;
-    font-size: 2.8em;
-    margin: 0em 0 1em;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-weight: 700;
-}
-    
-.button {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 16px 32px;
-    text-align: center;
+.contact2-form-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 244px;
+    height: 50px;
+  
+   
+  
+    font-family: Poppins-Medium;
     font-size: 16px;
-    margin: 4px 2px;
-    transition: 0.3s;
+    color: #fff;
+    line-height: 1.2;
+    
+  
   }
-
-#button:hover {
-    background-color: #3e8e41;
-    color: white;
-}
 
 #url {
     color: red;
     display: none;
 }
 #meteo {
-    background: rgb(248, 232, 83);
-    color: white;
-}
-#latitude {
-    background: rgb(163, 75, 16);
-    color: white;
-}
-#longitude {
     background: rgb(16, 109, 163);
-    color: white;
-}
-#humidity {
-    background: rgb(16, 109, 163);
-    color: white;
-}
-#sun_rise {
-    background: rgb(222, 236, 28);
     color: white;
 }
 
-#sun_set {
-    background: rgb(236, 37, 210);
-    color: white;
-}
-#weather_value {
-    background: rgb(25, 247, 18);
+#humidity {
+    background: rgb(16, 109, 163);
     color: white;
 }
 #pressure {
