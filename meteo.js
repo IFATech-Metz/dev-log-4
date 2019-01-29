@@ -140,7 +140,8 @@ function init_page() {
 
             //Icone
             var icon = response.weather[0].icon;
-            var src = "http://openweathermap.org/img/w/" + icon + ".png";
+            var src = "http://openweathermap.org/img/w/" + icon + ".png"
+
             document.getElementById("icon").src = src;
 
             document.getElementById("meteo").innerHTML = temperature+ "°C";
@@ -157,7 +158,6 @@ function init_page() {
             document.getElementById("icon").src = src;
         }
     }
-
     //Envoie la requete au serveur
     xhr.open("GET", get_url(), true)
     xhr.send()
@@ -213,7 +213,6 @@ function getMeteoinstant() {
             document.getElementById("direction").innerHTML = direction;
             document.getElementById("meteo").innerHTML = "La température est de "+temperature.toFixed(1)+ "°C";
             document.getElementById("icon").src = src;
-
         }
     }
     xhr.open("GET", get_url(), true)
