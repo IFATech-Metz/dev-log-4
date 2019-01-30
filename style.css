@@ -1,3 +1,4 @@
+
 #url{
     visibility: hidden;
 }
@@ -9,13 +10,39 @@
 #url_visibility{
     visibility: hidden;
 }
-.navbar.navbar-1 .navbar-toggler-icon {
-    background-image: url('https://mdbootstrap.com/img/svg/hamburger6.svg?color=000');
+
+.table-reponsive{
+    background-color: rgb(80, 191, 255);
+    position: relative;
+    text-align: center;
+    border-radius: 10px;
+	
 }
 
-.navbar{
-    background: #393c3b;
+#card {
+	background: #fff;
+	position: static;
+    text-align: center;
+    text-size-adjust: 10px;
+   
 }
-.ville{
-    border: #1d2124;
+
+#prev {
+    background-color: rgb(80, 191, 255);
+	background: #fff;
+	position: static;
+    text-align: center;
+    text-size-adjust: 10px;
+   
 }
+.temp {
+	font-size: 73px;
+	display: block;
+	position: relative;
+	font-weight: bold;
+}
+
+
+
+
+
