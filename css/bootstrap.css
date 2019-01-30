@@ -60,9 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-image: url'(img/fond.jpg') no-repeat center fixed; 
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; 
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
