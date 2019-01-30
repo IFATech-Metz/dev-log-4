@@ -29,7 +29,6 @@ var units = "metric";
 var appid = "a09cbd4e9badfe13c2f50fffcf69ad1c";
 
 
-
 //Va chercher l'url meteo Instant clic
 function get_url() {
     return base_url + "?"
@@ -123,6 +122,7 @@ function init_page() {
 
             //pression
             var pressure = response.main.pressure;
+
 
             //temp_min
             var temp_min = response.main.temp_min;

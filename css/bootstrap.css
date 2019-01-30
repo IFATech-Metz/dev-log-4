@@ -63,7 +63,6 @@ body {
   background-image: url'(img/fond.jpg') no-repeat center fixed; 
   -webkit-background-size: cover; /* pour anciens Chrome et Safari */
   background-size: cover; 
-
 }
 
 [tabindex="-1"]:focus {
