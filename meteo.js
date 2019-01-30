@@ -123,6 +123,7 @@ function init_page() {
             //pression
             var pressure = response.main.pressure;
 
+
             //temp_min
             var temp_min = response.main.temp_min;
 
